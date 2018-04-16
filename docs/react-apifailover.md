@@ -1,7 +1,6 @@
 ### Overview
 
-This component illustrates various methods of handling scenarios of how to handle failed API connectivity or slow data connections. The examples are focusing on various methods of storing pre-existing data for display within the React application. Each of the methods use the same the "Client" content type and are labeled accordingly in the application. The methods and associated functions are named according to the technique and will be documented below according to workflow. 
-
+This component illustrates various methods of handling scenarios for how to handle failed API connectivity or slow data connections. The examples focus on various methods of storing pre-existing data for display within the React application. Each of the methods uses the same "Client" content type and is labeled accordingly in the application. The methods and associated functions are named according to the technique and are documented below according to workflow.
 
 ### 'Client' content fields in Drupal
 
@@ -56,22 +55,21 @@ export default connect()(APIDataFailoverPage);
 
 #### `src/components/APIDataFailoverApp.js`
 
-This component file serves as the central point of execution for the visual elements of the structure. The core functionality revolves around the referenced API action functions referenced as `../actions/failoverActions` in this file, which is stored in Redux and passed down to the inner components. The component also includes the sub-component `Client` which is passed both `props` and `state` from this parent component.
+This component file serves as the central point of execution for the visual elements of the structure. The core functionality revolves around the API action functions referenced as `../actions/failoverActions` in this file, which is stored in Redux and passed down to the inner components. The component also includes the sub-component `Client` which is passed both `props` and `state` from this parent component.
 
 #### `src/components/CLient.js`
 
-This component serves as the UI layer to render the stored data as a visual element for each of the 3 techniques. As with the prior component, data is pulled from the Redux object and passed thru the `props` when interacting with the application. 
+This component serves as the UI layer to render the stored data as a visual element for each of the 3 techniques. As with the prior component, data is pulled from the Redux object and passed through the `props` when interacting with the application.
 
 #### src/api/drupalAPI.js
 
-This component stores each of the original storage methods by core functionality. The `loadCache` function uses a service worker to reference the `window.caches` for the storage device, which is referenced and leveraged in the associated files `src/util/registerServiceWorker.js` and `src/util/service-worker.js`. The `loadLocalStorage` function stores and and references the data according to the `localStorage` method, then allowing to be referenced as `key:value` as JSON objects. The `loadIndexedDB` function leverages the `Dexie` package to create a local HDD space to create a relational database for reference. The `clearCaches` is used as utility method do clear each of the caches with their matching option. 
-
+This component stores each of the original storage methods by core functionality. The `loadCache` function uses a service worker to reference the `window.caches` for the storage device, which is referenced and leveraged in the associated files `src/util/registerServiceWorker.js` and `src/util/service-worker.js`. The `loadLocalStorage` function stores and references the data according to the `localStorage` method, then allows it to be referenced as `key:value` JSON objects. The `loadIndexedDB` function leverages the `Dexie` package to create a local HDD space to create a relational database for reference. The `clearCaches` is used as a utility method to clear each of the caches with their matching option.
 
 ### Interacting with the storage methods
 
 #### src/components/APIDataFailoverApp.js
 
-The primary execution of the storage interaction is executed within the `src/components/APIDataFailoverApp.js` file. This is referenced in the file as `import * as actions from '../actions/failoverActions'` before binding within the standard Redux workflow. These actions are named according to their functionality in the `src/actions/failoverActions.js` file, as this file serves most of the Redux actions for each of the interactions. As per the standard Redux workflow, reducers utilized as the final step to append the state. Each of the actions associated to the method are bound by button click as: `fetchCache` `fetchIndexedDb` `fetchLocalStorage`. All the caches are cleared with the action click `clearCaches`.   
+The primary execution of the storage interaction is executed within the `src/components/APIDataFailoverApp.js` file. This is referenced in the file as `import * as actions from '../actions/failoverActions'` before binding within the standard Redux workflow. These actions are named according to their functionality in the `src/actions/failoverActions.js` file, as this file serves most of the Redux actions for each of the interactions. As per the standard Redux workflow, reducers utilized as the final step to append the state. Each of the actions associated to the method are bound by a button click as: `fetchCache` `fetchIndexedDb` `fetchLocalStorage`. All the caches are cleared with the action click `clearCaches`.
   
   
 #### Window.Cache technique
@@ -206,7 +204,6 @@ The primary execution of the storage interaction is executed within the `src/com
   }
 ```
 
-
 ### External References & Resources 
 
 - [Web Workers API -  MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
@@ -214,14 +211,3 @@ The primary execution of the storage interaction is executed within the `src/com
 - [Window.localStorage - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 - [IndexedDB API - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
 - [Dexie - npm package](https://www.npmjs.com/package/dexie)
-
-
-
-
-
-
-
-
-
-
-

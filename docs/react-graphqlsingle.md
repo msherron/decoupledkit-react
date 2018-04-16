@@ -1,6 +1,6 @@
 ### Overview
 
-This component offers patterned workflows when interacting with GraphQL as an orchestration application in which JSON API data originates from Drupal. The code samples target the "Pokemon" content type which is served by Drupal via GraphQL, but can be replicated for other content types and fields. This documentation will target the React piece of this architecture, but you can review the [GraphQL documentation](./graphql.md) for more insight of that piece. 
+This component offers patterned workflows when interacting with GraphQL as an orchestration application in which JSON API data originates from Drupal. The code samples target the "Pokemon" content type which is served by Drupal via GraphQL, but can be replicated for other content types and fields. This documentation will target the React piece of this architecture, but you can review the [GraphQL documentation](./graphql.md) for more insight on that piece.
 
 ### 'Pokemon' content fields in Drupal
 
@@ -63,31 +63,27 @@ export default connect()(GraphQLClientDrupalPage);
 
 #### `src/components/GraphQLClientDrupalApp.js`
 
-The GraphQL component file serves as the central point of execution for the visual elements of the structure. The core functionality revolves around the referenced API action functions referenced as `../actions/graphqlclientActions` in this file, which is stored in Redux and passed down to the inner components. Both the `Pokemon` and `PokemonCompare` list components are sub-components of this file, and are passed both `props` and `state` from this parent component.
-
+The GraphQL component file serves as the central point of execution for the visual elements of the structure. The core functionality revolves around the API action functions referenced as `../actions/graphqlclientActions` in this file, which is stored in Redux and passed down to the inner components. Both the `Pokemon` and `PokemonCompare` list components are sub-components of this file and are passed both `props` and `state` from this parent component.
 
 #### `src/components/Pokemon.js`
 
-The component is used to list the various Pokemon nodes which were served from GraphQL and previously retrieved from the Redux object and passed down to this component. The component focuses its functionality around presenting the GraphQL queried data as a list. The `showfull` state is used to toggle the full or partial visibility of the component according to the container classnames `minimal` or `full`. The `taxonomies` function is used to present both the 'abilities' and 'type' taxonomies as lists, along with their meta. The `base_stats` function is used to display the various integer fields of that character, along with a slight delta comparison. The `render()` handles the typical `const` assignment for each of the individual field matches, in addition to the locally scoped listing functions for taxonomies.   
-
+This component lists the various Pokemon nodes which were served from GraphQL and previously retrieved from the Redux object and passed down to this component. Its functionality focuses on presenting the GraphQL queried data as a list. The `showfull` state is used to toggle the full or partial visibility of the component according to the container classnames `minimal` or `full`. The `taxonomies` function is used to present both the 'abilities' and 'type' taxonomies as lists, along with their meta. The `base_stats` function is used to display the various integer fields of that character, along with a slight delta comparison. The `render()` handles the typical `const` assignment for each of the individual field matches, in addition to the locally scoped listing functions for taxonomies.
 
 #### `src/components/PokemonCompare.js`
 
-The component focuses its efforts on comparing the same statical attributes for each Pokemon character that are collected as base stats. As with the prior component, data is pulled from the Redux object and passed thru the `props` when interacting with the application. The `handleClickStats` function binds the click event to compare as a simple `a to b` comparison operator.  The `render()` handles the typical `const` assignment for each of the grouping according to the `dataset` which is stored in inherited `state`.
-
+This component compares the same statical attributes for each Pokemon character that are collected as base stats. As with the prior component, data is pulled from the Redux object and passed thru the `props` when interacting with the application. The `handleClickStats` function binds the click event to compare as a simple `a to b` comparison operator. The `render()` handles the typical `const` assignment for each of the groupings according to the `dataset` which is stored in the inherited `state`.
 
 ### GraphQL interaction
 
-The primary execution of the JSON API interaction is fired within the `src/components/GraphQLClientDrupalApp.js` file. This is referenced in this file as `import * as actions from '../actions/graphqlclientActions.js'` before binding within the standard Redux workflow. These actions are named according to their functionality in the `src/actions/graphqlclientActions.js` file, as this file serves most of the Redux actions for each of the interactions. As per the standard Redux workflow, reducers utilized as the final step to append the state. These reducers are `src/reducers/drupalLoadReducer.js` and `src/reducers/drupalLoadImgReducer.js`. 
+The primary execution of the JSON API interaction is fired within the `src/components/GraphQLClientDrupalApp.js` file. This is referenced in this file as `import * as actions from '../actions/graphqlclientActions.js'` before binding within the standard Redux workflow. These actions are named according to their functionality in the `src/actions/graphqlclientActions.js` file, as this file serves most of the Redux actions for each of the interactions. As per the standard Redux workflow, reducers are used as the final step to append the state. These reducers are `src/reducers/drupalLoadReducer.js` and `src/reducers/drupalLoadImgReducer.js`.
 
 #### What is Apollo Client?
 
-Apollo Client is a GraphQL client for which is being used as a proxy layer in the application.  It is designed from the ground up to make it easy to build UI components that fetch data with GraphQL. Apollo Client offers many benefits like correctly formed requests, marking properly updated cache, and schema consistency. 
-
+Apollo Client is a GraphQL client that is being used as a proxy layer in the application. It is designed from the ground up to make it easy to build UI components that fetch data with GraphQL. Apollo Client offers many benefits like correctly formed requests, marking properly updated cache, and schema consistency.
 
 #### Constructing the GraphQL query
 
-The single query is called within the `src/actions/graphqlclientActions.js` file. The query is written as a template literal tag using the `graphql-tag` package and then exported as a constant as in the following code. 
+The single query is called within the `src/actions/graphqlclientActions.js` file. The query is written as a template literal tag using the `graphql-tag` package and then exported as a constant as in the following code.
 
 ```
 export const query = gql`
@@ -126,7 +122,7 @@ export const query = gql`
 
 #### Executing the GraphQL query
 
-The query function is called exported to be used in the `src/actions/graphqlclientActions.js` file. This `fetchData` function then dispatches according to the beginning and received constants which are stored in the same file. The `BEGIN_GRAPHQL` and `RECEIVE_GRAPHQL` constants are then used to execute the timing of each scenario in the Redux store. 
+The query function is exported to be used in the `src/actions/graphqlclientActions.js` file. This `fetchData` function then dispatches according to the beginning and received constants which are stored in the same file. The `BEGIN_GRAPHQL` and `RECEIVE_GRAPHQL` constants are then used to execute the timing of each scenario in the Redux store.
 
 
 ### External References & Resources 
@@ -135,9 +131,3 @@ The query function is called exported to be used in the `src/actions/graphqlclie
 - [What is Apollo Client and what does it do?](https://www.apollographql.com/docs/react)
 - [Why you might want a GraphQL client](https://dev-blog.apollodata.com/why-you-might-want-a-graphql-client-e864050f789c)
 - [graphql-tag - github reference](https://github.com/apollographql/graphql-tag)
-
-
-
-
-
-

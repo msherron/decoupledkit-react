@@ -27,4 +27,4 @@ Pokemon reviewer
 
 ### Roles & decoupled
 
-When working with Drupal in a decoupled architecture roles provide the OAuth server with available scopes. When permissions are evaluated they do not take the roles that the user has been given into consideration; rather the roles that have been provisioned with token. Token roles are provisioned when additional scopes are requested at generation time. For a token to be given additional roles the user account that is generating the token needs to have the role assigned as well, this prevents unwanted permissions elevation.
+When working with Drupal in a decoupled architecture, roles provide the OAuth server with available scopes. When permissions are evaluated they do not take the roles that the user has been given into consideration; rather the roles that have been provisioned with token. Token roles are provisioned when additional scopes are requested at generation time. For a token to be given additional roles the user account that is generating the token needs to have the role assigned as well, this prevents unwanted permissions elevation.

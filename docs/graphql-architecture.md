@@ -1,12 +1,12 @@
 ## GraphQL Architecture
 
-The GraphQL application is contained with the `__graphql_server` folder of the repository. This code was included in a subfolder to keep separation from the React application, but without the need for a separate codebase. 
+The GraphQL application is contained in the `__graphql_server` folder of the repository. This code was included in a subfolder to keep it segregated from the React application without the need for a separate codebase.
 
 ### Node.js application 
 
 #### `__graphql_server/package.json`
 
-As with standard Node application, the  `package.json` serves as the manifest file for the application when the initial rendering occurs. The file includes the applications dependences and versions, but also defines the build task as the standard `npm start` command. After installing the dependencies, the appropriate packages will be stored in the `node_modules` directory.
+As with standard Node application, the `package.json` serves as the manifest file for the application when the initial rendering occurs. The file includes the application's dependencies and versions. It also defines the build task as the standard `npm start` command. After installing the dependencies, the appropriate packages will be stored in the `node_modules` directory.
 
 ```
 {
@@ -54,7 +54,7 @@ CLIENT_ID=be2557eb-bd73-4606-9a45-30b94a07019d
 
 #### `__graphql_server/src/app.js`
 
-The code for `app.js` is the primary JavaScript file of execution for the application. The file uses Express to serve the route for the single GraphQL endpoint `/graphql` and the graphql explorer `/graphiql`. The files also layers in `apollo-engine` package to help with performance, caching, and metrics. 
+The code for `app.js` is the primary JavaScript file of execution for the application. The file uses Express to serve the route for the single GraphQL endpoint `/graphql` and the graphql explorer `/graphiql`. The files also layer in the `apollo-engine` package to help with performance, caching, and metrics.
 
 
 ```
@@ -82,15 +82,9 @@ const engine = new Engine({engineConfig: {
 
 #### `__graphql_server/data`
 
-This folder stores any local `*.json` content files that are used within the GraphQL applications. A majority of the data served from external APIs, but a handful of local file options are included to demonstrate serving data from a localized data source 
+This folder stores any local `*.json` content files that are used within the GraphQL applications. A majority of the data is served from external APIs but a handful of local file options are included to demonstrate serving data from a localized data source.
 
 
 #### `__graphql_server/src`
 
-Other than the `app.js` file, the files  stored in the `src/` folder are dedicated to the GraphQL functionality. Each of the GraphQl `types` (and subsequent functions) are stored separated in the `src/types` folder, while some are directly related with each other based on need. The API helper functions are located in `src/helper` and functionality revolves primarily around `fetch` methods from external sources. 
-
-
-
-
-
-
+Other than the `app.js` file, the files stored in the `src/` folder are dedicated to the GraphQL functionality. Each of the GraphQl `types` (and subsequent functions) are stored separately in the `src/types` folder, while some are directly related to each other based on need. The API helper functions are located in `src/helper` and functionality revolves primarily around `fetch` methods from external sources.

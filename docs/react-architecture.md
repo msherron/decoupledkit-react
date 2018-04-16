@@ -1,6 +1,6 @@
 ## React Architecture
 
-The React application is contained in the root of this repository and entails everything except for the `__graphql_server`. The React application is operating as a [Single Page Application](https://en.wikipedia.org/wiki/Single-page_application) that is being served by a NodeJS server.
+The React application is contained in the root of this repository and requires everything except for the `__graphql_server`. The React application is operating as a [Single Page Application](https://en.wikipedia.org/wiki/Single-page_application) that is being served by a NodeJS server.
 
 
 ### Folder structure
@@ -28,14 +28,14 @@ The React application is contained in the root of this repository and entails ev
     ├── styles
     │   └── # SASS files for the application.
     └── util
-        └── # Utility files to show other integrationes.
+        └── # Utility files to show other integrations.
 ```
 
 #### Node.js application
 
 #### `package.json`
 
-The `package.json` file acts as a manifest for the application. This file includes all application dependencies, versions and also defines tasks that can be run with `npm` eg. `npm start`. After installing the dependencies, the appropriate packages will be stored in the `node_modules` directory.
+The `package.json` file acts as a manifest for the application. This file includes all application dependencies, versions and also defines tasks that can be run with `npm`, eg. `npm start`. After installing the dependencies, the appropriate packages will be stored in the `node_modules` directory.
 
 ```
 {
@@ -318,7 +318,7 @@ The `package.json` file acts as a manifest for the application. This file includ
 
 #### `.babelrc`
 
-The `.babelrc` file contains configuration for babel plugins that are required to build the application correctly. Babel plugins enable to application to be written using the latest specification for Javascript and will compile the code ready for browsers.
+The `.babelrc` file contains configuration for babel plugins that are needed for React development. Bable converts the application source code into code that is readable by current browsers. The default configuration in this application enables you to use ES6 and JSX.
 
 - [Babel](https://babeljs.io/docs/usage/babelrc/)
 
@@ -328,7 +328,7 @@ Bower configuration file.
 
 #### `.env`
 
-The `.env` file is used by the `dotenv` package. It will load all values in this file into `process.env` which will be made accessible to the server side JS application. The package supports a hierarchical override system; any environment variables that are sent with the CLI execution of the node server will not be overridden by those in the file.
+The `.env` file is used by the `dotenv` package. It will load all values in this file into `process.env` which will be made accessible to the server-side JS application. The package supports a hierarchical override system; any environment variables that are sent with the CLI execution of the node server will not be overridden by those in the file.
 
 A sample `.env.example` is provided to communicate the variables needed when setting up locally.  
 
@@ -342,7 +342,7 @@ CLIENT_ID=***CLIENTID***
 
 #### `.eslint.json`
 
-Configuration for ESLint rules. While Webpack is watching the repositor the rules in this file will be run through when loading new files and compiling the application.
+Configuration for ESLint rules. While Webpack is watching the repository the rules in this file will be run through when loading new files and compiling the application.
 
 
 #### `src`
