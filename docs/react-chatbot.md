@@ -1,6 +1,6 @@
 ### Overview
 
-This component demonstrates another client that is integrating with the data provided by Drupal. In our example the React application includes an embedded iframe from Dialogflow. It shows that by decoupling you have an API ready for other applications to integrate with and begin presenting data in other formats.
+This component demonstrates another client that is integrated with the data provided by Drupal. In our example, the React application includes an embedded iframe from Dialogflow. It shows that by decoupling you have an API ready for other applications to integrate with and begin presenting data in other formats.
 
 ### Application structure and scaffolding
 
@@ -36,21 +36,21 @@ import { connect } from 'react-redux'
 ```
 
 ```
-The component is t hen connected to the Redux store and exported
+The component is then connected to the Redux store and exported
 export default connect()(ChatBotPage)
 ```
 
 ### Dialogflow
 
-Dialogflow (previously api.ai) is a voice and text-based conversational interface that easilly allows you to develop applications for connected devices (such as Alexa or Google Assistant). These applications can also be embeded into the web to provide text-based interactions. 
+Dialogflow (previously api.ai) is a voice and text-based conversational interface that easily allows you to develop applications for connected devices (such as Alexa or Google Assistant). These applications can also be embedded into the web to provide text-based interactions.
 
-It allows you create intents and entities which act as triggers and variables when passed to your script. An intent triggers are particular function and is given the user input, you can use this input to request additional information from an API to provide a valuable repsonse to the visitor.
+It allows you to create intents and entities which act as triggers and variables when passed to your script. An intent trigger is a particular function and is given the user input. You can use this input to request additional information from an API to provide a valuable repsponse to the visitor.
 
-#### Fullfillment
+#### Fulfillment
 
-Dialogflow provides a script engine for defining how an intent is fullfilled. This script is where we engage our GraphQL server for additional information on how to respond to the user.
+Dialogflow provides a script engine for defining how an intent is fulfilled. This script is where we engage our GraphQL server for additional information on how to respond to the user.
 
-The fullfillment scripts  allow npm packages to be used.
+The fulfillment scripts allow npm packages to be used.
 
 ```
 # import the graphql client
