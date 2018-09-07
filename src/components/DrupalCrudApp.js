@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as actions from '../actions/drupalAPIActions'
-import Node from './node';
+import Node from './Node';
 import NewNodeForm from './NewNodeForm';
 import '../styles/drupalcrud.scss'
 
