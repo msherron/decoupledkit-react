@@ -7,7 +7,6 @@ events:
     steps:
       - build:
           script:
-            - curl ipinfo.io/ip
             - nvm install v6.11.2
             - nvm use 6.11.2
             - npm install
